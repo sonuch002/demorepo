@@ -1,6 +1,8 @@
 package com.qa.tests;
 
 
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +13,9 @@ import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 
 public class LoginPageTest extends TestBase{
+	//author sonu
 	
+	Logger log =Logger.getLogger(LoginPageTest.class);
 	LoginPage loginPage;
 	HomePage homePage;
 	
@@ -27,6 +31,8 @@ public class LoginPageTest extends TestBase{
 	
 	public void setup()
 	{
+		log.info("*******************test cases execution starts*************************");
+		
 		initilization();
 		loginPage=new LoginPage();
 	
@@ -34,6 +40,7 @@ public class LoginPageTest extends TestBase{
 	@Test  (priority=1) 
 	public void loginpagetitletest()
 	{
+		log.info("");
 		String title=loginPage.validateLoginPageTitle();
 		Assert.assertEquals(title, "#1 Free CRM for Any Business: Online Customer Relationship Software");
 		
@@ -49,7 +56,10 @@ public class LoginPageTest extends TestBase{
 	@Test (priority=3)
 	public void loginTest()
 	{
-		homePage=loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
+		
+		
+		
+		
 		
 		
 	}
